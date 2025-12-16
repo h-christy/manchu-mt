@@ -1,0 +1,173 @@
+@misc {jean_seo_2024,
+    author       = { {Jean Seo} },
+    title        = { manchuBERT (Revision 64133be) },
+    year         = 2024,
+    url          = { https://huggingface.co/seemdog/manchuBERT },
+    doi          = { 10.57967/hf/1599 },
+    publisher    = { Hugging Face }
+}
+@inproceedings{pei-etal-2025-understanding,
+    title = "Understanding In-Context Machine Translation for Low-Resource Languages: A Case Study on {M}anchu",
+    author = "Pei, Renhao  and
+      Liu, Yihong  and
+      Lin, Peiqin  and
+      Yvon, Fran{\c{c}}ois  and
+      Schuetze, Hinrich",
+    editor = "Che, Wanxiang  and
+      Nabende, Joyce  and
+      Shutova, Ekaterina  and
+      Pilehvar, Mohammad Taher",
+    booktitle = "Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = jul,
+    year = "2025",
+    address = "Vienna, Austria",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.acl-long.429/",
+    doi = "10.18653/v1/2025.acl-long.429",
+    pages = "8767--8788",
+    ISBN = "979-8-89176-251-0",
+    abstract = "In-context machine translation (MT) with large language models (LLMs) is a promising approach for low-resource MT, as it can readily take advantage of linguistic resources such as grammar books and dictionaries.Such resources are usually selectively integrated into the prompt so that LLMs can directly perform translation without any specific training, via their in-context learning capability (ICL).However, the relative importance of each type of resource, e.g., dictionary, grammar book, and retrieved parallel examples, is not entirely clear.To address this gap, this study systematically investigates how each resource and its quality affect the translation performance, with the Manchu language as our case study. To remove any prior knowledge of Manchu encoded in the LLM parameters and single out the effect of ICL, we also experiment with an enciphered version of Manchu texts.Our results indicate that high-quality dictionaries and good parallel examples are very helpful, while grammars hardly help.In a follow-up study, we showcase a promising application of in-context MT: parallel data augmentation as a way to bootstrap a conventional MT model. When monolingual data abound, generating synthetic parallel data through in-context MT offers a pathway to mitigate data scarcity and build effective and efficient low-resource neural MT systems."
+}
+
+@article{leeManNERManPOSJoint2024,
+  title = {{{ManNER}} \& {{ManPOS}}: {{Joint}} 30th {{International Conference}} on {{Computational Linguistics}} and 14th {{International Conference}} on {{Language Resources}} and {{Evaluation}}, {{LREC-COLING}} 2024},
+  shorttitle = {{{ManNER}} \& {{ManPOS}}},
+  author = {Lee, Sangah and Byun, Sungjoo and Seo, Jean and Kang, Minha},
+  editor = {Calzolari, Nicoletta and Kan, Min-Yen and Hoste, Veronique and Lenci, Alessandro and Sakti, Sakriani and Xue, Nianwen},
+  year = 2024,
+  journal = {2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation, LREC-COLING 2024 - Main Conference Proceedings},
+  series = {2024 {{Joint International Conference}} on {{Computational Linguistics}}, {{Language Resources}} and {{Evaluation}}, {{LREC-COLING}} 2024 - {{Main Conference Proceedings}}},
+  pages = {11030--11039},
+  publisher = {European Language Resources Association (ELRA)},
+  urldate = {2025-11-27},
+  abstract = {We present pioneering research in the realm of Natural Language Processing (NLP) for the endangered Manchu language. Recognizing the critical importance of linguistic preservation, we experiment with three language models - BiLSTM-CRF, BERT, and mBERT - for Named Entity Recognition (NER) and Part-of-Speech (POS) tagging tasks. Given the limited digitized Manchu text available, we augment the data using GloVe embeddings for the pre-training of BERT-based models. Remarkably, all models demonstrated outstanding performance, achieving over 90\% F1 score in both NER and POS tagging tasks. Our research not only marks the first application of NLP on Manchu and the inaugural use of BERT-based models for the language but also stands as the first endeavor to employ Manchu for NER and POS tagging. To foster further exploration and applications in the field, we make our fine-tuning dataset and models available to the public. Through this research, we aim to underscore the significance of NLP in the protection and revitalization of low-resource languages.},
+  keywords = {BERT,BiLSTM-CRF,Data Augmentation,Endangered Language,Low-Resource Language,Manchu language,mBERT,NER,POS tagging}
+}
+
+@article{seoMergenFirstManchuKorean2024,
+  title = {Mergen: {{The First Manchu-Korean Machine Translation Model Trained}} on {{Augmented Data}}},
+  shorttitle = {Mergen},
+  author = {Seo, Jean and Byun, Sungjoo and Kang, Minha and Lee, Sangah},
+  year = 2024,
+  month = jan,
+  number = {arXiv:2311.17492},
+  eprint = {2311.17492},
+  primaryclass = {cs},
+  publisher = {arXiv},
+  doi = {10.48550/arXiv.2311.17492},
+  urldate = {2025-11-27},
+  abstract = {The Manchu language, with its roots in the historical Manchurian region of Northeast China, is now facing a critical threat of extinction, as there are very few speakers left. In our efforts to safeguard the Manchu language, we introduce Mergen, the first-ever attempt at a Manchu-Korean Machine Translation (MT) model. To develop this model, we utilize valuable resources such as the Manwen Laodang(a historical book) and a Manchu-Korean dictionary. Due to the scarcity of a Manchu-Korean parallel dataset, we expand our data by employing word replacement guided by GloVe embeddings, trained on both monolingual and parallel texts. Our approach is built around an encoder-decoder neural machine translation model, incorporating a bi-directional Gated Recurrent Unit (GRU) layer. The experiments have yielded promising results, showcasing a significant enhancement in Manchu-Korean translation, with a remarkable 20-30 point increase in the BLEU score.},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Computation and Language}
+}
+
+@article{leeManNERManPOSJoint2024,
+  title = {{{ManNER}} \& {{ManPOS}}: {{Joint}} 30th {{International Conference}} on {{Computational Linguistics}} and 14th {{International Conference}} on {{Language Resources}} and {{Evaluation}}, {{LREC-COLING}} 2024},
+  shorttitle = {{{ManNER}} \& {{ManPOS}}},
+  author = {Lee, Sangah and Byun, Sungjoo and Seo, Jean and Kang, Minha},
+  editor = {Calzolari, Nicoletta and Kan, Min-Yen and Hoste, Veronique and Lenci, Alessandro and Sakti, Sakriani and Xue, Nianwen},
+  year = 2024,
+  journal = {2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation, LREC-COLING 2024 - Main Conference Proceedings},
+  series = {2024 {{Joint International Conference}} on {{Computational Linguistics}}, {{Language Resources}} and {{Evaluation}}, {{LREC-COLING}} 2024 - {{Main Conference Proceedings}}},
+  pages = {11030--11039},
+  publisher = {European Language Resources Association (ELRA)},
+  urldate = {2025-11-27},
+  abstract = {We present pioneering research in the realm of Natural Language Processing (NLP) for the endangered Manchu language. Recognizing the critical importance of linguistic preservation, we experiment with three language models - BiLSTM-CRF, BERT, and mBERT - for Named Entity Recognition (NER) and Part-of-Speech (POS) tagging tasks. Given the limited digitized Manchu text available, we augment the data using GloVe embeddings for the pre-training of BERT-based models. Remarkably, all models demonstrated outstanding performance, achieving over 90\% F1 score in both NER and POS tagging tasks. Our research not only marks the first application of NLP on Manchu and the inaugural use of BERT-based models for the language but also stands as the first endeavor to employ Manchu for NER and POS tagging. To foster further exploration and applications in the field, we make our fine-tuning dataset and models available to the public. Through this research, we aim to underscore the significance of NLP in the protection and revitalization of low-resource languages.},
+  keywords = {BERT,BiLSTM-CRF,Data Augmentation,Endangered Language,Low-Resource Language,Manchu language,mBERT,NER,POS tagging}
+}
+
+@inproceedings{leeManNERManPOSPioneering2024,
+  title = {{{ManNER}} \& {{ManPOS}}: {{Pioneering NLP}} for Endangered {{Manchu}} Language},
+  shorttitle = {{{ManNER}} \& {{ManPOS}}},
+  booktitle = {Proceedings of the 2024 {{Joint International Conference}} on {{Computational Linguistics}}, {{Language Resources}} and {{Evaluation}} ({{LREC-COLING}} 2024)},
+  author = {Lee, Sangah and Byun, Sungjoo and Seo, Jean and Kang, Minha},
+  year = 2024,
+  pages = {11030--11039},
+  urldate = {2025-12-12}
+}
+
+@misc{pei2025understandingincontextmachinetranslation,
+      title={Understanding In-Context Machine Translation for Low-Resource Languages: A Case Study on Manchu}, 
+      author={Renhao Pei and Yihong Liu and Peiqin Lin and François Yvon and Hinrich Schütze},
+      year={2025},
+      eprint={2502.11862},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2502.11862}, 
+}
+@book{CaoXueQinHongLouMengXiBoWen1993,
+  title = {{红楼梦(锡伯文)}},
+  author = {曹雪芹, 穆旭東},
+  year = 1993,
+  publisher = {新疆人民出版社},
+  googlebooks = {s8MRAQAAMAAJ},
+  isbn = {978-7-228-02044-7},
+  langid = {urdu}
+}
+
+@book{caoHungLouMeng2006,
+  title = {Hung {{Lou Meng}}, or, the {{Dream}} of the {{Red Chamber}}, a {{Chinese Novel}}, {{Book I}}},
+  author = {Cao, Xueqin},
+  translator = {Joly, H. Bencraft},
+  year = 2006,
+  month = jan,
+  urldate = {2025-12-03},
+  copyright = {Public domain in the USA.},
+  langid = {english},
+  lccn = {EBook-No. 9603},
+  keywords = {Autobiographical fiction,Cao Xueqin approximately 1717-1763 -- Fiction,China -- History -- Qing dynasty 1644-1912 -- Fiction,Domestic fiction,Jia Baoyu (Fictitious character) -- Fiction}
+}
+
+@book{caoHungLouMeng2006a,
+  title = {Hung {{Lou Meng}}, or, the {{Dream}} of the {{Red Chamber}}, a {{Chinese Novel}}, {{Book II}}},
+  author = {Cao, Xueqin},
+  translator = {Joly, H. Bencraft},
+  year = 2006,
+  month = jan,
+  urldate = {2025-12-03},
+  copyright = {Public domain in the USA.},
+  langid = {english},
+  lccn = {EBook-No. 9604},
+  keywords = {Autobiographical fiction,Cao Xueqin approximately 1717-1763 -- Fiction,China -- History -- Qing dynasty 1644-1912 -- Fiction,Domestic fiction,Jia Baoyu (Fictitious character) -- Fiction}
+}
+@misc{NLPScratchTranslation,
+  title = {{{NLP From Scratch}}: {{Translation}} with a {{Sequence}} to {{Sequence Network}} and {{Attention}} --- {{PyTorch Tutorials}} 2.9.0+cu128 Documentation},
+  shorttitle = {{{NLP From Scratch}}},
+  urldate = {2025-12-15},
+  howpublished = {https://docs.pytorch.org/tutorials/intermediate/seq2seq\_translation\_tutorial.html},
+  langid = {english}
+}
+
+@misc{SeemdogManchuBERTHugging,
+  title = {Seemdog/{{manchuBERT}} {$\cdot$} {{Hugging Face}}},
+  urldate = {2025-12-05},
+  abstract = {We're on a journey to advance and democratize artificial intelligence through open source and open science.},
+  howpublished = {https://huggingface.co/seemdog/manchuBERT}
+}
+
+@article{liuMultilingualDenoisingPretraining2020,
+  title = {Multilingual {{Denoising Pre-training}} for {{Neural Machine Translation}}},
+  author = {Liu, Yinhan and Gu, Jiatao and Goyal, Naman and Li, Xian and Edunov, Sergey and Ghazvininejad, Marjan and Lewis, Mike and Zettlemoyer, Luke},
+  editor = {Johnson, Mark and Roark, Brian and Nenkova, Ani},
+  year = 2020,
+  journal = {Transactions of the Association for Computational Linguistics},
+  volume = {8},
+  pages = {726--742},
+  publisher = {MIT Press},
+  address = {Cambridge, MA},
+  doi = {10.1162/tacl_a_00343},
+  urldate = {2025-12-15},
+  abstract = {This paper demonstrates that multilingual denoising pre-training produces significant performance gains across a wide variety of machine translation (MT) tasks. We present mBART---a sequence-to-sequence denoising auto-encoder pre-trained on large-scale monolingual corpora in many languages using the BART objective (Lewis et al., 2019). mBART is the first method for pre-training a complete sequence-to-sequence model by denoising full texts in multiple languages, whereas previous approaches have focused only on the encoder, decoder, or reconstructing parts of the text. Pre-training a complete model allows it to be directly fine-tuned for supervised (both sentence-level and document-level) and unsupervised machine translation, with no task- specific modifications. We demonstrate that adding mBART initialization produces performance gains in all but the highest-resource settings, including up to 12 BLEU points for low resource MT and over 5 BLEU points for many document-level and unsupervised models. We also show that it enables transfer to language pairs with no bi-text or that were not in the pre-training corpus, and present extensive analysis of which factors contribute the most to effective pre-training.1}
+}
+
+@book{normanComprehensiveManchuEnglishDictionary2013,
+  title = {A {{Comprehensive Manchu-English Dictionary}}},
+  author = {Norman, Jerry},
+  year = 2013,
+  publisher = {Harvard University Asia Center},
+  address = {Cambridge, MA, UNITED STATES},
+  urldate = {2025-12-05},
+  abstract = {Jerry Norman's Comprehensive Manchu-English Dictionary, a substantial revision and enlargement of his Concise Manchu-English Lexicon of 1978, now long out of print, is poised to become the standard English-language resource on the Manchu language. As the dynastic language of the Qing dynasty (1644-1911), Manchu was used in official documents and was also the vehicle for an enormous translation literature, mostly from the Chinese. The newDictionary, based exclusively on Qing sources, retains all of the information from the earlier Lexicon, but also includes hundreds of additional entries cited from original Manchu texts, enhanced cross-references, and an entirely new introduction on Manchu pronunciation and script. All content from the earlier publication has also been verified. This final book from the preeminent Manchu linguist in the English-speaking world is a reference work that not only updates Norman's earlier scholarship but also summarizes his decades of study of the Manchu language. The Dictionary, which represents a significant scholarly contribution to the field of Inner Asian studies and to all students and scholars of Manchu and other Tungusic and related languages around the world, will become a major tool for archival research on Chinese late imperial period history and government.},
+  isbn = {978-1-68417-069-2},
+  keywords = {Manchu language-Dictionaries-English.}
+}
