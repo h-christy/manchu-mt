@@ -113,7 +113,7 @@ Regarding to these observations, I re-romanized the Manchu side of my data to en
 
 Different ways for tokenizations are implemented for my four MT attempts. I would like to provide a brief illustration in this section before we go into the models. 
 
-In *Attempt 1*, tokenization was done by splitting our sentences by white spaces, thus, a word-level tokenization.^[with four additional tokens, <pad>, <bos>, <eos>, <unk>] As for *Attempt 2*, to correctly map to manchuBERT, I use the AutoTokenizer from Hugging Face transformer library to retrieve the tokenizer of our pre-trained model. And as stated in the paper, the tokenization they applied is **WordPiece**; in the English output part the bert-base-ubcased tokenizer was applied.^[with manually handling <eos> and <bos>]In *Attempt 3*, I continue to use the manchuBERT tokenizer for Manchu source sentences; the English counterpart uses the SentencePiece tokenization, which does the **subword** segmentation, and I have to additionally specify the tokenizer to translate into English. Finally, *Attempt 4*, the sentence was feed to google colab AI directly.
+In *Attempt 1*, tokenization was done by splitting our sentences by white spaces, thus, a word-level tokenization.^[with four additional tokens, <pad>, <bos>, <eos>, <unk>] As for *Attempt 2*, to correctly map to manchuBERT, I use the AutoTokenizer from Hugging Face transformer library to retrieve the tokenizer of our pre-trained model. And as stated in the paper, the tokenization they applied is **WordPiece**; in the English output part the bert-base-ubcased tokenizer was applied(@DBLP:journals/corr/abs-1810-04805).^[with manually handling <eos> and <bos>]In *Attempt 3*, I continue to use the manchuBERT tokenizer for Manchu source sentences; the English counterpart uses the SentencePiece tokenization, which does the **subword** segmentation, and I have to additionally specify the tokenizer to translate into English. Finally, *Attempt 4*, the sentence was feed to google colab AI directly.
 
 
 ## Approaches
@@ -153,7 +153,7 @@ Hyperparameters:
 
 Model Designs:
 
-  - The new things introduce in our Attempt 3 is that we now pass our encodings to the **mBART**,^[One of the key contributions of the mBART model is that it is proven to be conducive to translation of even the languages unseen by the model to fluent English sentences] the pre-trained, **end-to-end** multilingual to English model there to help us getting from encoded Manchu to sensical English sentences.(@liuMultilingualDenoisingPretraining2020)
+  - The new things introduce in our Attempt 3 is that we now pass our encodings to the **mBART**,^[One of the key contributions of the mBART model is that it is proven to be conducive to translation of even the languages unseen by the model to fluent English sentences] the pre-trained, **end-to-end** multilingual to English model there to help us getting from encoded Manchu to sensical English sentences.(@liuMultilingualDenoisingPretraining2020)^[https://huggingface.co/transformers/v4.4.2/_modules/transformers/models/mbart/tokenization_mbart50_fast.html]
 
 Hyperparameters:
 

@@ -267,7 +267,7 @@ approach for the challenging task of Manchu-English translation.
   Machine Translation, Endangered Language
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, arc=.35mm, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{The Language Manchu}, colbacktitle=quarto-callout-note-color!10!white, coltitle=black, rightrule=.15mm, toprule=.15mm, leftrule=.75mm, bottomtitle=1mm, breakable, toptitle=1mm, left=2mm, opacityback=0, bottomrule=.15mm, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colframe=quarto-callout-note-color-frame, opacityback=0, bottomtitle=1mm, colbacktitle=quarto-callout-note-color!10!white, opacitybacktitle=0.6, colback=white, leftrule=.75mm, toprule=.15mm, rightrule=.15mm, titlerule=0mm, arc=.35mm, bottomrule=.15mm, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{The Language Manchu}, left=2mm, breakable]
 
 \paragraph{Our Goal and the challenges along the
 way}\label{our-goal-and-the-challenges-along-the-way}
@@ -430,7 +430,7 @@ normalization}\label{text-cleaning-and-normalization}
 For simplicity, I removed all the punctuations, and all sentences are
 converted to lowercase.
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, arc=.35mm, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{The issue of Transliteration Alignment}, colbacktitle=quarto-callout-note-color!10!white, coltitle=black, rightrule=.15mm, toprule=.15mm, leftrule=.75mm, bottomtitle=1mm, breakable, toptitle=1mm, left=2mm, opacityback=0, bottomrule=.15mm, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colframe=quarto-callout-note-color-frame, opacityback=0, bottomtitle=1mm, colbacktitle=quarto-callout-note-color!10!white, opacitybacktitle=0.6, colback=white, leftrule=.75mm, toprule=.15mm, rightrule=.15mm, titlerule=0mm, arc=.35mm, bottomrule=.15mm, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{The issue of Transliteration Alignment}, left=2mm, breakable]
 
 One challenge I encountered in the data preparation phase is around the
 issue of transliteration, and I found it worth recording, so I would
@@ -476,13 +476,14 @@ manchuBERT, I use the AutoTokenizer from Hugging Face transformer
 library to retrieve the tokenizer of our pre-trained model. And as
 stated in the paper, the tokenization they applied is
 \textbf{WordPiece}; in the English output part the bert-base-ubcased
-tokenizer was applied.\footnote{with manually handling and}In
-\emph{Attempt 3}, I continue to use the manchuBERT tokenizer for Manchu
-source sentences; the English counterpart uses the SentencePiece
-tokenization, which does the \textbf{subword} segmentation, and I have
-to additionally specify the tokenizer to translate into English.
-Finally, \emph{Attempt 4}, the sentence was feed to google colab AI
-directly.
+tokenizer was applied(Devlin et al.
+(\citeproc{ref-DBLP:journalsux2fcorrux2fabs-1810-04805}{2018})).\footnote{with
+  manually handling and}In \emph{Attempt 3}, I continue to use the
+manchuBERT tokenizer for Manchu source sentences; the English
+counterpart uses the SentencePiece tokenization, which does the
+\textbf{subword} segmentation, and I have to additionally specify the
+tokenizer to translate into English. Finally, \emph{Attempt 4}, the
+sentence was feed to google colab AI directly.
 
 \subsection{Approaches}\label{approaches}
 
@@ -584,7 +585,7 @@ Model Designs:
     English sentences} the pre-trained, \textbf{end-to-end} multilingual
   to English model there to help us getting from encoded Manchu to
   sensical English sentences.(Liu et al.
-  (\citeproc{ref-liuMultilingualDenoisingPretraining2020}{2020}))
+  (\citeproc{ref-liuMultilingualDenoisingPretraining2020}{2020}))\footnote{https://huggingface.co/transformers/v4.4.2/\_modules/transformers/models/mbart/tokenization\_mbart50\_fast.html}
 \end{itemize}
 
 Hyperparameters:
@@ -958,6 +959,12 @@ their research effort was in itself very instructive and motivating.
 \bibitem[\citeproctext]{ref-caoHungLouMeng2006}
 Cao, Xueqin. 2006. \emph{Hung {Lou Meng}, or, the {Dream} of the {Red
 Chamber}, a {Chinese Novel}, {Book I}}. Translated by H. Bencraft Joly.
+
+\bibitem[\citeproctext]{ref-DBLP:journalsux2fcorrux2fabs-1810-04805}
+Devlin, Jacob, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. 2018.
+{``{BERT:} Pre-Training of Deep Bidirectional Transformers for Language
+Understanding.''} \emph{CoRR} abs/1810.04805.
+\url{http://arxiv.org/abs/1810.04805}.
 
 \bibitem[\citeproctext]{ref-leeManNERManPOSPioneering2024}
 Lee, Sangah, Sungjoo Byun, Jean Seo, and Minha Kang. 2024. {``{ManNER}
