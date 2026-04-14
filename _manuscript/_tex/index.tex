@@ -257,8 +257,8 @@
 
 \subsection{Introduction}\label{introduction}
 
-This project is an attempt to try out a Neural Machine Translation
-approach for the challenging task of Manchu-English translation.
+This project is an attempt to build a Neural Machine Translation model
+for the challenging task of Manchu-English translation.
 
 \begin{itemize}
 \tightlist
@@ -267,36 +267,36 @@ approach for the challenging task of Manchu-English translation.
   Machine Translation, Endangered Language
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colframe=quarto-callout-note-color-frame, opacityback=0, bottomtitle=1mm, colbacktitle=quarto-callout-note-color!10!white, opacitybacktitle=0.6, colback=white, leftrule=.75mm, toprule=.15mm, rightrule=.15mm, titlerule=0mm, arc=.35mm, bottomrule=.15mm, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{The Language Manchu}, left=2mm, breakable]
-
-\paragraph{Our Goal and the challenges along the
-way}\label{our-goal-and-the-challenges-along-the-way}
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, bottomtitle=1mm, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{The Language Manchu}, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white, breakable, colframe=quarto-callout-note-color-frame, rightrule=.15mm, toptitle=1mm, toprule=.15mm, bottomrule=.15mm, leftrule=.75mm, left=2mm, opacitybacktitle=0.6, colback=white, opacityback=0]
 
 \pandocbounded{\includegraphics[keepaspectratio]{images/manchu-steps.png}}
+
+\subparagraph{Our Goal and the challenges along the
+way}\label{our-goal-and-the-challenges-along-the-way}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Language in danger: Manchu is often treated as Latin, mainly learned
-  to read historical documents, but unlike Latin, it still has a spoken
-  tradition today. In the \textbf{Qapqal Xibe Autonomous County} in
-  Xinjiang, where its use is part of deliberate preservation efforts,
-  taken by the Xibe people in the name of Xibe (Sibe) language
+  Language in danger: Manchu is often treated like Latin, mainly learned
+  to read historical documents. Unlike Latin, however, it still has a
+  spoken tradition today. In the \textbf{Qapqal Xibe Autonomous County}
+  in Xinjiang, where its use is part of deliberate preservation efforts,
+  taken by the Xibe people in the name of the Xibe (Sibe) language
 \item
-  Digitization challenges: As some might have observed that the Manchu
+  Digitization challenges: As some may have observed that the Manchu
   writing system is very far from that of English or the most common
-  writing system in the world. First, the direction, in \textbf{columns}
-  and from left to right, similar to Arabic rotated 90 degrees
-  counter-clockwise. Second, Manchu script (alphabets) can be described
-  as \textbf{IMFI} script whih letters can take on more than four
-  different shapes depending on where they appear in the word or in
-  isolation. This complicated the picture for OCR, due to the extra work
-  on letter segmentation.
+  writing systems in the world. First, the direction, in
+  \textbf{columns} and from left to right, similar to Arabic rotated 90
+  degrees counter-clockwise. Second, Manchu script (alphabets) can be
+  described as \textbf{IMFI} script which letters can take on more than
+  four different shapes depending on where they appear in the word or
+  whether they are in isolation. This complicated the picture for OCR
+  digitization work, due to the extra work on letter segmentation.
 \item
   Transliteration
 \item
-  Traslation
+  Translation
 \end{enumerate}
 
 \end{tcolorbox}
@@ -304,11 +304,11 @@ way}\label{our-goal-and-the-challenges-along-the-way}
 \subsection{Literature Review}\label{literature-review}
 
 In this section, I want to briefly talk about the three papers that
-introduced me to the task of Manchu Machine Translation and I helped
-shape my methods and approaches in this project. These studies, in their
-distinctive ways engaged the Manchu Language revitalization effort in
-the broader dialogue of Neural Machine Translation in low-resource
-settings.
+introduced me to the task of Manchu machine translation and helped shape
+the methods and approaches in this project. These studies, in their
+distinctive ways, engage the Manchu Language revitalization effort
+within the broader dialogue of Neural Machine Translation in
+low-resource settings.
 
 \subparagraph[Seo et al., \emph{``Mergen: The First Manchu-Korean
 Machine Translation Model Trained on Augmented
@@ -318,15 +318,15 @@ Data.''}\footnote{Seo et al.
   (\citeproc{ref-seoMergenFirstManchuKorean2024}{2024})}}{Seo et al., ``Mergen: The First Manchu-Korean Machine Translation Model Trained on Augmented Data.''}}\label{seo-et-al.-mergen-the-first-manchu-korean-machine-translation-model-trained-on-augmented-data.}
 
 This paper introduces us the challenges of developing the typically
-data-driven Nueral Machine Translation models for Manchu, which suffers
-from scarcity (an extreme one) of parallel data --not only just in their
-case of Manchu-Korean translation, but generally. They thus come up with
-an innovative data augmentation strategy based on \textbf{word
+data-driven neural machine translation models for Manchu, which suffers
+from (an extreme) scarcity of parallel data, not only in the
+Manchu-Korean case, but more generally. They thus come up with an
+innovative data augmentation strategy based on \textbf{word
 replacement}, where lexical similarity is determined using GloVe
 embeddings of dictionary items. By augmenting the parallel corpus in
-this way, they witness a significant improvement of the BLEU score of
-their seq2seq model, from 0 to 38 as number of sentence pairs grows from
-20K to 179K.
+this way, they witness a significant improvement in the BLEU score of
+their seq2seq model, from 0 to 38, as the number of sentence pairs grows
+from 20K to 179K.
 
 \subparagraph[Lee et al., \emph{``ManNER \& ManPOS: Pioneering NLP for
 Endangered Manchu Language.''}]{\texorpdfstring{Lee et al.,
@@ -334,14 +334,14 @@ Endangered Manchu Language.''}]{\texorpdfstring{Lee et al.,
 Language.''}\footnote{Lee et al.
   (\citeproc{ref-leeManNERManPOSPioneering2024}{2024})}}{Lee et al., ``ManNER \& ManPOS: Pioneering NLP for Endangered Manchu Language.''}}\label{lee-et-al.-manner-manpos-pioneering-nlp-for-endangered-manchu-language.}
 
-This study, continuing their line of work, this team of researcher with
-their data augmentation technique further contributed by training from
-scratch the Manchu Langauge Model \textbf{manchuBERT} and releasing the
-model on Hugging Face. They then use the manchuBERT as the starting
-point for developing NER and POS tagging for Manchu, the strong
-performance of these downstream NLP modeling in turn provides evidence
-that manchuBERT langauge model indeed learned to be a robust encoder for
-Manchu.
+This study, from the same SNU team, continues their line of work and
+with their data augmentation technique, they further contribute by
+training the Manchu Langauge Model \textbf{manchuBERT} from scratch and
+releasing the model on Hugging Face. The manchuBERT langauge model
+serves as the starting point for developing NER and POS tagging for
+Manchu. The strong performance of these downstream NLP models, in turn,
+provides evidence that manchuBERT langauge model has indeed learned to
+be a robust encoder for Manchu.
 
 \paragraph[Pei et al., \emph{Understanding In-Context Machine
 Translation for Low-Resource Languages: A Case Study on
@@ -350,38 +350,38 @@ Machine Translation for Low-Resource Languages: A Case Study on
 Manchu}\footnote{Pei, Liu, Lin, Yvon, and Schuetze
   (\citeproc{ref-pei-etal-2025-understanding}{2025})}}{Pei et al., Understanding In-Context Machine Translation for Low-Resource Languages: A Case Study on Manchu}}\label{pei-et-al.-understanding-in-context-machine-translation-for-low-resource-languages-a-case-study-on-manchu}
 
-The third paper also devotes to the discussion of the prospect of
-low-resource machine translation, but approach the problem from a
-different angle. Rather than focusing on model architectural
-modifications or data augmentation, they get themselves around to think
-about how \textbf{human-curated linguistic knowledge}, such as
-dictionaries and grammar books can help in this picture. Specifically,
-how these linguistic resources can be instilled to pre-trained LLM and
-leverage their in-context learning (\textbf{ICL}) capability to machine
-translation of languages they are not trained on. Through experiment
-designs they systematically examine the effect of different linguistic
-information, and arrive at the conclusion that, dictionaries that
-comprehensively covers lexical meanings, suffix explanations, and
-morpheme collocation info can effectively improve translation quality,
-the same can parallel examples.
+This third paper also discusses the prospects of low-resource machine
+translation, but approaches the problem from a different angle. Rather
+than focusing on model architectural modifications or data augmentation
+techniques, the authors consider how \textbf{human-curated linguistic
+knowledge}, such as dictionaries and grammar books can contribute in
+this picture. Specifically, they explore how linguistic resources can be
+instilled into pre-trained LLMs as such models can leverage their
+in-context learning (\textbf{ICL}) capability for the translation of
+languages they were not trained on. Through a series of designed
+experiments, they systematically examine the effects of different types
+of linguistic information. The conclusion they arrive at is that--
+dictionaries that comprehensively cover lexical meanings, suffix
+explanations, and morpheme collocation information can effectively
+improve translation quality, as can parallel examples.
 
 \subsection{Data}\label{data}
 
 \subsubsection{Data Collection}\label{data-collection}
 
-The data used in this project is one small but carefully examined
+The data used in this project is a small but carefully examined
 Manchu-English parallel dataset. I chose the renowned novel
 \textbf{\emph{The Dream of the Red Chamber}} written in classical
-Chinese by Cao Xueqin (published in the 1790s Qing China)\footnote{the
-  novel was written in ``Written Vernacular Chinese'', but still not
-  that as explicit as modern Chinese}, in specific, the novel's Manchu
+Chinese by Cao Xueqin (published in 1790s Qing China)\footnote{the novel
+  was written in ``Written Vernacular Chinese'', but still not that as
+  explicit as modern Chinese}, in specific, the novel's Manchu
 translation(曹雪芹
 (\citeproc{ref-CaoXueQinHongLouMengXiBoWen1993}{1993})) and English
 translation (Cao (\citeproc{ref-caoHungLouMeng2006}{2006})) With the
-hope that translators of this canonical literature had stronger emphasis
-on fidelity to the original text thus expecting it to be relatively
-easier for me to find sentence-level alignment that would help me a lot
-in building my language pairs
+hope that translators of this canonical work would place stronger
+emphasis on fidelity to the original text, thus, expecting it to be
+relatively easier for me to find sentence-level alignments that would
+help me a lot in building my language pairs
 
 Here, I present some key distributions of my dataset:
 
@@ -390,9 +390,9 @@ Sentence Length:
 \begin{itemize}
 \tightlist
 \item
-  Manchu: 5.38 words per sentence in average
+  Manchu: 5.38 words per sentence on average
 \item
-  English: 7,73 words per sentence in average
+  English: 7.73 words per sentence on average
 \end{itemize}
 
 \pandocbounded{\includegraphics[keepaspectratio]{images/sent-plot.png}}
@@ -413,9 +413,9 @@ Vocabulary Size:
 
 \paragraph{Data Split}\label{data-split}
 
-I reserved 12.5\% for validation (37 rows), as for the other 38 rows for
-testing, which remains 225 rows for training. Given the very limited
-size of our data, and the often large size of training parameters in our
+I reserved 12.5\% for validation (37 rows), as for the another 38 rows
+for testing, leaving 225 rows for training. Given the very limited size
+of our data, and the often large number of training parameters in our
 neural models, regularization and monitoring validation loss are both
 very crucial concerns in the training process.\footnote{a better and
   definitely doable robustness test is to implement k-fold cross
@@ -427,52 +427,52 @@ very crucial concerns in the training process.\footnote{a better and
 \paragraph{Text cleaning and
 normalization}\label{text-cleaning-and-normalization}
 
-For simplicity, I removed all the punctuations, and all sentences are
+For simplicity, I removed all punctuation, and all sentences were
 converted to lowercase.
 
-\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colframe=quarto-callout-note-color-frame, opacityback=0, bottomtitle=1mm, colbacktitle=quarto-callout-note-color!10!white, opacitybacktitle=0.6, colback=white, leftrule=.75mm, toprule=.15mm, rightrule=.15mm, titlerule=0mm, arc=.35mm, bottomrule=.15mm, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{The issue of Transliteration Alignment}, left=2mm, breakable]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, bottomtitle=1mm, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{The issue of Transliteration Alignment}, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white, breakable, colframe=quarto-callout-note-color-frame, rightrule=.15mm, toptitle=1mm, toprule=.15mm, bottomrule=.15mm, leftrule=.75mm, left=2mm, opacitybacktitle=0.6, colback=white, opacityback=0]
 
 One challenge I encountered in the data preparation phase is around the
 issue of transliteration, and I found it worth recording, so I would
 like to share it here. The transliteration system that I was using
-initially for my self-curated dataset is the \textbf{Möllendorff-Norman}
-system, because this is the one our Manchu professor taught, and also
-one of the most used system.
+initially for my self-curated dataset was the
+\textbf{Möllendorff-Norman} system, because it is the one our Manchu
+professor taught, and is also one of the most used systems.
 
-Later in an attempt of harvesting from the pre-trained manchuBERT, I
+Later, in an attempt of harvesting from the pre-trained manchuBERT, I
 found in the \emph{Mergen (2024)} paper statements that they use
-\textbf{Abkai transliteration}, so I converted my dataset into Abkai
-only to find out that they not quite entirely adopt this system. To
-clarify this, and because the datasets they disclosed in the github
-repository are the test ones, thus I did a small experiment with the
-manchuBERT as masked language model. After inputting some sentences with
-mask tokens, the outputs of manchuBERT revealed that they actually use a
-hybrid system for transliteration, for example, the model represents the
-sixth Manchu vowel using \texttt{v} rather than the Norman \texttt{ū};
-uses \texttt{x} instead of the Norman \texttt{š}, which seems to be
-aligning to the Abkai system. At the same time, it employs Norman
-\texttt{c} rather than the Abkai-preferred \texttt{q}.
+\textbf{Abkai transliteration}. I converted my dataset into Abkai, only
+to find out that they do not fully adopt the system. To clarify this,
+and because the datasets disclosed in their github repository are the
+test sets, I ran a small experiment using manchuBERT as a masked
+language model. After inputting some sentences with mask tokens, the
+outputs of manchuBERT suggested that they actually use a hybrid system
+for transliteration. For example, the model represents the sixth Manchu
+vowel using \texttt{v} rather than the Norman \texttt{ū}; uses
+\texttt{x} instead of the Norman \texttt{š}, which seems to be aligning
+to the Abkai system. At the same time, it employs Norman \texttt{c}
+rather than the Abkai-preferred \texttt{q}.
 
-Regarding to these observations, I re-romanized the Manchu side of my
-data to ensure the alignment of the one manchuBERT learnt. I think this
-transliteration alignment process that I underwent actually highlights a
-non-trivial challenge in obtaining and integrating online Manchu
-resources, when without a standardized transliteration system, languages
-that use non-Latin scripts are going to suffer, or will require
-additional attention in the data preprocessing stage.
+Based on these observations, I re-romanized the Manchu side of my data
+to align with what manchuBERT learnt. I think this transliteration
+alignment process that I underwent actually highlights a non-trivial
+challenge in obtaining and integrating online Manchu resources: when
+without a standardized transliteration system, languages that use
+non-Latin scripts are going to suffer, or will require additional
+attention in the data preprocessing stage.
 
 \end{tcolorbox}
 
 \paragraph{Tokenization}\label{tokenization}
 
-Different ways for tokenizations are implemented for my four MT
+Different ways for tokenizations are implemented across my four MT
 attempts. I would like to provide a brief illustration in this section
 before we go into the models.
 
 In \emph{Attempt 1}, tokenization was done by splitting our sentences by
-white spaces, thus, a word-level tokenization.\footnote{with four
-  additional tokens, , , ,} As for \emph{Attempt 2}, to correctly map to
-manchuBERT, I use the AutoTokenizer from Hugging Face transformer
+whitespace, resulting in word-level tokenization.\footnote{with four
+  additional tokens, , , ,} In \emph{Attempt 2}, to correctly map to
+manchuBERT, I use the AutoTokenizer from Hugging Face Transformer
 library to retrieve the tokenizer of our pre-trained model. And as
 stated in the paper, the tokenization they applied is
 \textbf{WordPiece}; in the English output part the bert-base-ubcased

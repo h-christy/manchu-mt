@@ -21,53 +21,53 @@ prefer-html: true
 
 ## Introduction
 
-This project is an attempt to try out a Neural Machine Translation approach for the challenging task of Manchu-English translation.
+This project is an attempt to build a Neural Machine Translation model for the challenging task of Manchu-English translation.
 
 - Keywords: Neural Machine Translation, Data Curation, In-Context Machine Translation, Endangered Language
 
-::: {.callout-note title='The Language Manchu' collapse='true'}
-
-#### Our Goal and the challenges along the way
+::: {.callout-note title='The Language Manchu'}
 
 ![](images/manchu-steps.png)
 
-1. Language in danger: Manchu is often treated as Latin, mainly learned to read historical documents, but unlike Latin, it still has a spoken tradition today. In the **Qapqal Xibe Autonomous County** in Xinjiang, where its use is part of deliberate preservation efforts, taken by the Xibe people in the name of Xibe (Sibe) language
-2. Digitization challenges: As some might have observed that the Manchu writing system is very far from that of English or the most common writing system in the world. First, the direction, in **columns** and from left to right, similar to Arabic rotated 90 degrees counter-clockwise. Second, Manchu script (alphabets) can be described as **IMFI** script whih letters can take on more than four different shapes depending on where they appear in the word or in isolation. This complicated the picture for OCR, due to the extra work on letter segmentation.
+##### Our Goal and the challenges along the way
+
+1. Language in danger: Manchu is often treated like Latin, mainly learned to read historical documents. Unlike Latin, however, it still has a spoken tradition today. In the **Qapqal Xibe Autonomous County** in Xinjiang, where its use is part of deliberate preservation efforts, taken by the Xibe people in the name of the Xibe (Sibe) language
+2. Digitization challenges: As some may have observed that the Manchu writing system is very far from that of English or the most common writing systems in the world. First, the direction, in **columns** and from left to right, similar to Arabic rotated 90 degrees counter-clockwise. Second, Manchu script (alphabets) can be described as **IMFI** script which letters can take on more than four different shapes depending on where they appear in the word or whether they are in isolation. This complicated the picture for OCR digitization work, due to the extra work on letter segmentation.
 3. Transliteration
-4. Traslation
+4. Translation
 
 
 :::
 
 ## Literature Review
 
-In this section, I want to briefly talk about the three papers that introduced me to the task of Manchu Machine Translation and I helped shape my methods and approaches in this project. These studies, in their distinctive ways engaged the Manchu Language revitalization effort in the broader dialogue of Neural Machine Translation in low-resource settings.
+In this section, I want to briefly talk about the three papers that introduced me to the task of Manchu machine translation and helped shape the methods and approaches in this project. These studies, in their distinctive ways, engage the Manchu Language revitalization effort within the broader dialogue of Neural Machine Translation in low-resource settings.
 
 ##### Seo et al., *“Mergen: The First Manchu-Korean Machine Translation Model Trained on Augmented Data.”*^[@seoMergenFirstManchuKorean2024]
 
-This paper introduces us the challenges of developing the typically data-driven Nueral Machine Translation models for Manchu, which suffers from scarcity (an extreme one) of parallel data --not only just in their case of Manchu-Korean translation, but generally. They thus come up with an innovative data augmentation strategy based on **word replacement**, where lexical similarity is determined using GloVe embeddings of dictionary items. By augmenting the parallel corpus in this way, they witness a significant improvement of the BLEU score of their seq2seq model, from 0 to 38 as number of sentence pairs grows from 20K to 179K.
+This paper introduces us the challenges of developing the typically data-driven neural machine translation models for Manchu, which suffers from (an extreme) scarcity of parallel data, not only in the Manchu-Korean case, but more generally. They thus come up with an innovative data augmentation strategy based on **word replacement**, where lexical similarity is determined using GloVe embeddings of dictionary items. By augmenting the parallel corpus in this way, they witness a significant improvement in the BLEU score of their seq2seq model, from 0 to 38, as the number of sentence pairs grows from 20K to 179K.
 
 ##### Lee et al., *“ManNER & ManPOS: Pioneering NLP for Endangered Manchu Language.”*^[@leeManNERManPOSPioneering2024]
 
-This study, continuing their line of work, this team of researcher with their data augmentation technique further contributed by training from scratch the Manchu Langauge Model **manchuBERT** and releasing the model on Hugging Face. They then use the manchuBERT as the starting point for developing NER and POS tagging for Manchu, the strong performance of these downstream NLP modeling in turn provides evidence that manchuBERT langauge model indeed learned to be a robust encoder for Manchu.
+This study, from the same SNU team, continues their line of work and with their data augmentation technique, they further contribute by training the Manchu Langauge Model **manchuBERT** from scratch and releasing the model on Hugging Face. The manchuBERT langauge model serves as the starting point for developing NER and POS tagging for Manchu. The strong performance of these downstream NLP models, in turn, provides evidence that manchuBERT langauge model has indeed learned to be a robust encoder for Manchu.
 
 #### Pei et al., *Understanding In-Context Machine Translation for Low-Resource Languages: A Case Study on Manchu*^[@pei-etal-2025-understanding]
 
-The third paper also devotes to the discussion of the prospect of low-resource machine translation, but approach the problem from a different angle. Rather than focusing on model architectural modifications or data augmentation, they get themselves around to think about how **human-curated linguistic knowledge**, such as dictionaries and grammar books can help in this picture. Specifically, how these linguistic resources can be instilled to pre-trained LLM and leverage their in-context learning (**ICL**) capability to machine translation of languages they are not trained on. Through experiment designs they systematically examine the effect of different linguistic information, and arrive at the conclusion that, dictionaries that comprehensively covers lexical meanings, suffix explanations, and morpheme collocation info can effectively improve translation quality, the same can parallel examples.
+This third paper also discusses the prospects of low-resource machine translation, but approaches the problem from a different angle. Rather than focusing on model architectural modifications or data augmentation techniques, the authors consider how **human-curated linguistic knowledge**, such as dictionaries and grammar books can contribute in this picture. Specifically, they explore how linguistic resources can be instilled into pre-trained LLMs as such models can leverage their in-context learning (**ICL**) capability for the translation of languages they were not trained on. Through a series of designed experiments, they systematically examine the effects of different types of linguistic information. The conclusion they arrive at is that-- dictionaries that comprehensively cover lexical meanings, suffix explanations, and morpheme collocation information can effectively improve translation quality, as can parallel examples.
 
 
 ## Data
 
 ### Data Collection
 
-The data used in this project is one small but carefully examined Manchu-English parallel dataset. I chose the renowned novel ***The Dream of the Red Chamber*** written in classical Chinese by Cao Xueqin (published in the 1790s Qing China)^[the novel was written in "Written Vernacular Chinese", but still not that as explicit as modern Chinese], in specific, the novel's Manchu translation(@CaoXueQinHongLouMengXiBoWen1993) and English translation (@caoHungLouMeng2006) With the hope that translators of this canonical literature had stronger emphasis on fidelity to the original text thus expecting it to be relatively easier for me to find sentence-level alignment that would help me a lot in building my language pairs
+The data used in this project is a small but carefully examined Manchu-English parallel dataset. I chose the renowned novel ***The Dream of the Red Chamber*** written in classical Chinese by Cao Xueqin (published in 1790s Qing China)^[the novel was written in "Written Vernacular Chinese", but still not that as explicit as modern Chinese], in specific, the novel's Manchu translation(@CaoXueQinHongLouMengXiBoWen1993) and English translation (@caoHungLouMeng2006) With the hope that translators of this canonical work would place stronger emphasis on fidelity to the original text, thus, expecting it to be relatively easier for me to find sentence-level alignments that would help me a lot in building my language pairs
 
 Here, I present some key distributions of my dataset:
 
 Sentence Length:
 
-- Manchu: 5.38 words per sentence in average
-- English: 7,73 words per sentence in average
+- Manchu: 5.38 words per sentence on average
+- English: 7.73 words per sentence on average
 
 ![](images/sent-plot.png)
 
@@ -91,29 +91,29 @@ Vocabulary Size:
 
 #### Data Split
 
-I reserved 12.5% for validation (37 rows), as for the other 38 rows for testing, which remains 225 rows for training. Given the very limited size of our data, and the often large size of training parameters in our neural models, regularization and monitoring validation loss are both very crucial concerns in the training process.^[a better and definitely doable robustness test is to implement k-fold cross validation so as to eliminate the effect of data splitting for small sample]
+I reserved 12.5% for validation (37 rows), as for the another 38 rows for testing, leaving 225 rows for training. Given the very limited size of our data, and the often large number of training parameters in our neural models, regularization and monitoring validation loss are both very crucial concerns in the training process.^[a better and definitely doable robustness test is to implement k-fold cross validation so as to eliminate the effect of data splitting for small sample]
 
 ### Data Preprocessing
 
 #### Text cleaning and normalization
 
-For simplicity, I removed all the punctuations, and all sentences are converted to lowercase.
+For simplicity, I removed all punctuation, and all sentences were converted to lowercase.
 
 ::: {.callout-note title='The issue of Transliteration Alignment'}
 
-One challenge I encountered in the data preparation phase is around the issue of transliteration, and I found it worth recording, so I would like to share it here. The transliteration system that I was using initially for my self-curated dataset is the **Möllendorff-Norman** system, because this is the one our Manchu professor taught, and also one of the most used system. 
+One challenge I encountered in the data preparation phase is around the issue of transliteration, and I found it worth recording, so I would like to share it here. The transliteration system that I was using initially for my self-curated dataset was the **Möllendorff-Norman** system, because it is the one our Manchu professor taught, and is also one of the most used systems. 
 
-Later in an attempt of harvesting from the pre-trained manchuBERT, I found in the *Mergen (2024)* paper statements that they use **Abkai transliteration**, so I converted my dataset into Abkai only to find out that they not quite entirely adopt this system. To clarify this, and because the datasets they disclosed in the github repository are the test ones, thus I did a small experiment with the manchuBERT as masked language model. After inputting some sentences with mask tokens, the outputs of manchuBERT revealed that they actually use a hybrid system for transliteration, for example, the model represents the sixth Manchu vowel using `v` rather than the Norman `ū`; uses `x` instead of the Norman `š`, which seems to be aligning to the Abkai system. At the same time, it employs Norman `c` rather than the Abkai-preferred `q`.
+Later, in an attempt of harvesting from the pre-trained manchuBERT, I found in the *Mergen (2024)* paper statements that they use **Abkai transliteration**. I converted my dataset into Abkai, only to find out that they do not fully adopt the system. To clarify this, and because the datasets disclosed in their github repository are the test sets, I ran a small experiment using manchuBERT as a masked language model. After inputting some sentences with mask tokens, the outputs of manchuBERT suggested that they actually use a hybrid system for transliteration. For example, the model represents the sixth Manchu vowel using `v` rather than the Norman `ū`; uses `x` instead of the Norman `š`, which seems to be aligning to the Abkai system. At the same time, it employs Norman `c` rather than the Abkai-preferred `q`.
 
-Regarding to these observations, I re-romanized the Manchu side of my data to ensure the alignment of the one manchuBERT learnt. I think this transliteration alignment process that I underwent actually highlights a non-trivial challenge in obtaining and integrating online Manchu resources, when without a standardized transliteration system, languages that use non-Latin scripts are going to suffer, or will require additional attention in the data preprocessing stage.
+Based on these observations, I re-romanized the Manchu side of my data to align with what manchuBERT learnt. I think this transliteration alignment process that I underwent actually highlights a non-trivial challenge in obtaining and integrating online Manchu resources: when without a standardized transliteration system, languages that use non-Latin scripts are going to suffer, or will require additional attention in the data preprocessing stage.
 
 :::
 
 #### Tokenization
 
-Different ways for tokenizations are implemented for my four MT attempts. I would like to provide a brief illustration in this section before we go into the models. 
+Different ways for tokenizations are implemented across my four MT attempts. I would like to provide a brief illustration in this section before we go into the models. 
 
-In *Attempt 1*, tokenization was done by splitting our sentences by white spaces, thus, a word-level tokenization.^[with four additional tokens, <pad>, <bos>, <eos>, <unk>] As for *Attempt 2*, to correctly map to manchuBERT, I use the AutoTokenizer from Hugging Face transformer library to retrieve the tokenizer of our pre-trained model. And as stated in the paper, the tokenization they applied is **WordPiece**; in the English output part the bert-base-ubcased tokenizer was applied(@DBLP:journals/corr/abs-1810-04805).^[with manually handling <eos> and <bos>]In *Attempt 3*, I continue to use the manchuBERT tokenizer for Manchu source sentences; the English counterpart uses the SentencePiece tokenization, which does the **subword** segmentation, and I have to additionally specify the tokenizer to translate into English. Finally, *Attempt 4*, the sentence was feed to google colab AI directly.
+In *Attempt 1*, tokenization was done by splitting our sentences by whitespace, resulting in word-level tokenization.^[with four additional tokens, <pad>, <bos>, <eos>, <unk>] In *Attempt 2*, to correctly map to manchuBERT, I use the AutoTokenizer from Hugging Face Transformer library to retrieve the tokenizer of our pre-trained model. And as stated in the paper, the tokenization they applied is **WordPiece**; in the English output part the bert-base-ubcased tokenizer was applied(@DBLP:journals/corr/abs-1810-04805).^[with manually handling <eos> and <bos>]In *Attempt 3*, I continue to use the manchuBERT tokenizer for Manchu source sentences; the English counterpart uses the SentencePiece tokenization, which does the **subword** segmentation, and I have to additionally specify the tokenizer to translate into English. Finally, *Attempt 4*, the sentence was feed to google colab AI directly.
 
 
 ## Approaches
