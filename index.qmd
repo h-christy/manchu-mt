@@ -228,14 +228,14 @@ Across all three NMT models, the training loss decreased monotonically, indicati
 
 ### Evaluation Metrics
 
-| Model / Approach            | Best (Val BLEU) | Best (Val Loss) | Longer Training Sample |
+| Model / Approach            | Test BLEU (Best Val BLEU) | Test BLEU (Best Val Loss) | Test BLEU (Longer Training) |
 | --------------------------- | --------------: | --------------: | ---------------------: |
 | Seq2Seq (2 GRUs)            |            2.08 |            0.72 |                   0.94 |
 | manchuBERT + LSTM           |            1.38 |            1.27 |                   1.44 |
 | manchuBERT + mBART          |            1.86 |            0.47 |                   1.86 |
 
 
-To understand these BLEU scores, we can first look at the results scores from the first three attempts, which involve model training. Under the conventional validation set approach for model selection, choosing the best model based on validation loss, the manchuBERT + LSTM model performs best. If we allow another way of assessing the model's ability to extrapolate, the BLEU scores evaluated on the models with the best BLEU score, then it is the baseline seq2seq network that outperforms other two. This aligns with our understanding of the relationship between data size and the size of training parameters.
+To understand these BLEU scores,^[Test BLEU scores reported here correspond to the model perfomance on the held-put test set at check points selected by highest validation BLEU, by lowest validation loss, and at checkpoint for longer training (epoch 15)] we can first look at the results scores from the first three attempts, which involve model training. Under the conventional validation set approach for model selection, choosing the best model based on validation loss, the manchuBERT + LSTM model performs best. If we allow another way of assessing the model's ability to extrapolate, the BLEU scores evaluated on the models with the best BLEU score, then it is the baseline seq2seq network that outperforms other two. This aligns with our understanding of the relationship between data size and the size of training parameters.
 
 I observed that in theory, the combined manchuBERT + mBART model arrangement made sense. However, in implementation, 
 I wrestled with the tokenization alignment quite a bit only to get it working and the training was very slow. This to a certain extent points me to an understanding of model flexibility, that the model architecture of my third attempt was a bit too grand and sophisticated with respect the 300 language pairs that I had at hand.

@@ -420,9 +420,9 @@ The issue of Transliteration Alignment
 <thead>
 <tr class="header">
 <th>Model / Approach</th>
-<th style="text-align: right;">Best (Val BLEU)</th>
-<th style="text-align: right;">Best (Val Loss)</th>
-<th style="text-align: right;">Longer Training Sample</th>
+<th style="text-align: right;">Test BLEU (Best Val BLEU)</th>
+<th style="text-align: right;">Test BLEU (Best Val Loss)</th>
+<th style="text-align: right;">Test BLEU (Longer Training)</th>
 </tr>
 </thead>
 <tbody>
@@ -446,7 +446,7 @@ The issue of Transliteration Alignment
 </tr>
 </tbody>
 </table>
-<p>To understand these BLEU scores, we can first look at the results scores from the first three attempts, which involve model training. Under the conventional validation set approach for model selection, choosing the best model based on validation loss, the manchuBERT + LSTM model performs best. If we allow another way of assessing the model’s ability to extrapolate, the BLEU scores evaluated on the models with the best BLEU score, then it is the baseline seq2seq network that outperforms other two. This aligns with our understanding of the relationship between data size and the size of training parameters.</p>
+<p>To understand these BLEU scores,<a href="#fn14" class="footnote-ref" id="fnref14" role="doc-noteref"><sup>14</sup></a> we can first look at the results scores from the first three attempts, which involve model training. Under the conventional validation set approach for model selection, choosing the best model based on validation loss, the manchuBERT + LSTM model performs best. If we allow another way of assessing the model’s ability to extrapolate, the BLEU scores evaluated on the models with the best BLEU score, then it is the baseline seq2seq network that outperforms other two. This aligns with our understanding of the relationship between data size and the size of training parameters.</p>
 <p>I observed that in theory, the combined manchuBERT + mBART model arrangement made sense. However, in implementation, I wrestled with the tokenization alignment quite a bit only to get it working and the training was very slow. This to a certain extent points me to an understanding of model flexibility, that the model architecture of my third attempt was a bit too grand and sophisticated with respect the 300 language pairs that I had at hand.</p>
 <p>Moving towards my fourth attempt, I was interested in examining, provided linguistic knowlege and lexical meanings of the words in a sentence alone, LLM’s capability to do translation on languages that they were not explicitly trained on. Thus, I design an experiment with hope that I can to some extent eliminate the prior knowledge of Manchu of LLM. Specifically, I referred to the Pei et al.&nbsp;paper(<span class="citation" data-cites="pei2025understandingincontextmachinetranslation">Pei, Liu, Lin, Yvon, and Schütze (<a href="#ref-pei2025understandingincontextmachinetranslation" role="doc-biblioref">2025</a>)</span>), and performed a comparison between four conditions created by different prompt configurations:</p>
 <ol type="1">
@@ -555,7 +555,7 @@ The issue of Transliteration Alignment
 </section>
 <section id="discussion" class="level2">
 <h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
-<p>In general, all machine translation attempts in this project show low BLEU scores, which is expected in terms of the obvious discrepancy between the millions of parameters these models have and the very modest size of my dataset. <strong>Low-resource NMT</strong> has become a very popular reseach area recently, this project explored many of the proposed remedies, leaving others not reached, in doing so to some degree tested the practical boundaries of what counts as low-resource language. Many languages described as “low-resource” in the NLP literature still possess orders of magnitude more data than Manchu, which has almost no modern digital presence.<a href="#fn14" class="footnote-ref" id="fnref14" role="doc-noteref"><sup>14</sup></a></p>
+<p>In general, all machine translation attempts in this project show low BLEU scores, which is expected in terms of the obvious discrepancy between the millions of parameters these models have and the very modest size of my dataset. <strong>Low-resource NMT</strong> has become a very popular reseach area recently, this project explored many of the proposed remedies, leaving others not reached, in doing so to some degree tested the practical boundaries of what counts as low-resource language. Many languages described as “low-resource” in the NLP literature still possess orders of magnitude more data than Manchu, which has almost no modern digital presence.<a href="#fn15" class="footnote-ref" id="fnref15" role="doc-noteref"><sup>15</sup></a></p>
 <p>However, this practice and seeing it as a concrete appreciation of the obstacles of data scarcity in a NMT model, is meaningful to me because I finally get to go from not just vaguely think about how I can use data science to preserve Manchu but to actually get a neural machine translation model working. And throughout this project, I was able to familiarize myself with where the exisiting resource are, and started thinking about what resource I can potentially introduce. In addition, getting to meet these communities dedicating to Manchu preservation with their research effort was in itself very instructive and motivating.</p>
 
 </section>
@@ -608,7 +608,8 @@ Seo, Jean, Sungjoo Byun, Minha Kang, and Sangah Lee. 2024. <span>“Mergen: <spa
 <li id="fn11"><p>https://huggingface.co/transformers/v4.4.2/_modules/transformers/models/mbart/tokenization_mbart50_fast.html<a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn12"><p><span class="citation" data-cites="pei2025understandingincontextmachinetranslation">Pei, Liu, Lin, Yvon, and Schütze (<a href="#ref-pei2025understandingincontextmachinetranslation" role="doc-biblioref">2025</a>)</span><a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn13"><p>In regard to the small size of our data, validation loss alone can interrupt training signals and can often prevent the model from optimize, thus, to strike a balance between underfit and overfit, I save three models for each attempt and also download there predictions on the test set for later human evaluation of translation quality<a href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn14"><p>low relatively to French-English, Spanish-English pairs<a href="#fnref14" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn14"><p>Test BLEU scores reported here correspond to the model perfomance on the held-put test set at check points selected by highest validation BLEU, by lowest validation loss, and at checkpoint for longer training (epoch 15)<a href="#fnref14" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn15"><p>low relatively to French-English, Spanish-English pairs<a href="#fnref15" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main>
 <!-- /main column -->
