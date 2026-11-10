@@ -79,12 +79,12 @@ Vocabulary Size:
 :::: {.columns}
 ::: {.column}
 
-![](images/mnc-word-freq-plot.png)
+![](images/mnc-word-freq-plot.png){width=65%}
 
 :::
 ::: {.column}
 
-![](images/en-word-freq-plot.png)
+![](images/en-word-freq-plot.png){width=65%}
 
 :::
 ::::

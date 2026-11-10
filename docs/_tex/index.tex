@@ -267,7 +267,7 @@ for the challenging task of Manchu-English translation.
   Machine Translation, Endangered Language
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, toprule=.15mm, colframe=quarto-callout-note-color-frame, opacityback=0, colback=white, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, arc=.35mm, leftrule=.75mm, titlerule=0mm, bottomtitle=1mm, opacitybacktitle=0.6, bottomrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{The Language Manchu}, toptitle=1mm, left=2mm, coltitle=black]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomrule=.15mm, leftrule=.75mm, opacityback=0, colframe=quarto-callout-note-color-frame, rightrule=.15mm, left=2mm, toprule=.15mm, arc=.35mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, coltitle=black, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{The Language Manchu}, breakable, titlerule=0mm]
 
 \pandocbounded{\includegraphics[keepaspectratio]{images/manchu-steps.png}}
 
@@ -409,9 +409,9 @@ Vocabulary Size:
   English: 669 distinct words
 \end{itemize}
 
-\pandocbounded{\includegraphics[keepaspectratio]{images/mnc-word-freq-plot.png}}
+\includegraphics[width=0.65\linewidth,height=\textheight,keepaspectratio]{images/mnc-word-freq-plot.png}
 
-\pandocbounded{\includegraphics[keepaspectratio]{images/en-word-freq-plot.png}}
+\includegraphics[width=0.65\linewidth,height=\textheight,keepaspectratio]{images/en-word-freq-plot.png}
 
 \paragraph{Data Split}\label{data-split}
 
@@ -431,7 +431,7 @@ normalization}\label{text-cleaning-and-normalization}
 For simplicity, I removed all punctuation, and all sentences were
 converted to lowercase.
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, toprule=.15mm, colframe=quarto-callout-note-color-frame, opacityback=0, colback=white, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, arc=.35mm, leftrule=.75mm, titlerule=0mm, bottomtitle=1mm, opacitybacktitle=0.6, bottomrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{The issue of Transliteration Alignment}, toptitle=1mm, left=2mm, coltitle=black]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomrule=.15mm, leftrule=.75mm, opacityback=0, colframe=quarto-callout-note-color-frame, rightrule=.15mm, left=2mm, toprule=.15mm, arc=.35mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, coltitle=black, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{The issue of Transliteration Alignment}, breakable, titlerule=0mm]
 
 I faced challenges in the data preparation phase is around the issue of
 transliteration, and I found it worth recording, so I would like to
@@ -727,11 +727,11 @@ there seems to be an increasing trend in the validation BLEU score.
 \begin{minipage}[b]{\linewidth}\raggedright
 Model / Approach
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-Best (Val BLEU)
+Test BLEU (Best Val BLEU)
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-Best (Val Loss)
+Test BLEU (Best Val Loss)
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-Longer Training Sample
+Test BLEU (Longer Training)
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
@@ -742,15 +742,19 @@ manchuBERT + LSTM & 1.38 & 1.27 & 1.44 \\
 manchuBERT + mBART & 1.86 & 0.47 & 1.86 \\
 \end{longtable}
 
-To understand these BLEU scores, we can first look at the results scores
-from the first three attempts, which involve model training. Under the
-conventional validation set approach for model selection, choosing the
-best model based on validation loss, the manchuBERT + LSTM model
-performs best. If we allow another way of assessing the model's ability
-to extrapolate, the BLEU scores evaluated on the models with the best
-BLEU score, then it is the baseline seq2seq network that outperforms
-other two. This aligns with our understanding of the relationship
-between data size and the size of training parameters.
+To understand these BLEU scores,\footnote{Test BLEU scores reported here
+  correspond to the model perfomance on the held-put test set at check
+  points selected by highest validation BLEU, by lowest validation loss,
+  and at checkpoint for longer training (epoch 15)} we can first look at
+the results scores from the first three attempts, which involve model
+training. Under the conventional validation set approach for model
+selection, choosing the best model based on validation loss, the
+manchuBERT + LSTM model performs best. If we allow another way of
+assessing the model's ability to extrapolate, the BLEU scores evaluated
+on the models with the best BLEU score, then it is the baseline seq2seq
+network that outperforms other two. This aligns with our understanding
+of the relationship between data size and the size of training
+parameters.
 
 I observed that in theory, the combined manchuBERT + mBART model
 arrangement made sense. However, in implementation, I wrestled with the
