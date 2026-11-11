@@ -27,7 +27,7 @@ This project is an attempt to build a Neural Machine Translation model for the c
 
 ::: {.callout-note title='The Language Manchu'}
 
-![](images/manchu-steps.png)
+![](images/manchu-steps.png){width=75%}
 
 ##### Our Goal and the Challenges Along the Way
 
